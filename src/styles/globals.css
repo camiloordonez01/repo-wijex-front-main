@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#formulario {
+    background: transparent linear-gradient(103deg, #39a9dd 0%, #2c4491 100%) 0%
+        0% no-repeat padding-box;
+}
