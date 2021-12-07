@@ -1,0 +1,11 @@
+.contentCard {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+}
+
+.btnLogin {
+    background: #2c4491 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #5a5757;
+    border-radius: 13px;
+    opacity: 1;
+}

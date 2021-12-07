@@ -2,7 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-#formulario {
+@layer base {
+    @font-face {
+        font-family: Dosis;
+        font-weight: 400;
+        src: url(/fonts/dosis/Dosis-Regular.ttf);
+    }
+    @font-face {
+        font-family: Roboto regular;
+        font-weight: 500;
+        src: url(/fonts/roboto/Roboto-Regular.ttf);
+    }
+}
+
+#formulario,
+#login,
+#menu {
     background: transparent linear-gradient(103deg, #39a9dd 0%, #2c4491 100%) 0%
         0% no-repeat padding-box;
 }

@@ -15,7 +15,8 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                'sans': ['Roboto', 'Helvetica', 'Arial', 'sans-serif']
+                'sans': ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                'font1': ['Dosis']
             }
         },
         colors: {
@@ -48,7 +49,9 @@ module.exports = {
             rose: colors.rose,
             primary: '#2D455D',
             secondary: '#E1AC9E',
+            secondary2: 'rgb(212, 118, 80)',
             third: '#85BAE3',
+            third2: '#DDEFE3',
             fourth: '#39A9DD',
             fifth: '#2D455D',
             inputcolor: '#EAE5E5B0',
@@ -58,6 +61,7 @@ module.exports = {
             gray: '#5C5C5C',
             bluecolor: '#2C4491',
             darkblue: '#233342',
+            plinth: '#A8D7CD'
         },
         spacing: {
             px: '1px',
@@ -1174,6 +1178,6 @@ module.exports = {
         zIndex: ['responsive', 'focus-within', 'focus'],
     },
     plugins: [
-        require('@tailwindcss/forms'),
+        require('@tailwindcss/forms')
     ],
 }

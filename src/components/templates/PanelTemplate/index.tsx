@@ -28,8 +28,10 @@ const IndexPanelPage: React.FC = ({
             Router.push('/login')
         }
         
-        const dateNow =  moment().tz('America/Bogota').toDate()
-        const dateCurrent = moment(expiration, 'YYYY-MM-DD HH:mm:ss.SSS').tz('America/Bogota').toDate()
+        let dateNow = new Date()
+        let dateCurrent = new Date(parseInt(expiration, 10))
+        /*const dateNow =  moment().tz('America/Bogota').toDate()
+        const dateCurrent = moment(expiration, 'YYYY-MM-DD HH:mm:ss.SSS').tz('America/Bogota').toDate()*/
         
         if(dateNow > dateCurrent){
             localStorage.removeItem('accessToken')
@@ -42,11 +44,11 @@ const IndexPanelPage: React.FC = ({
 
     return (
         <div className="h-screen bg-gray-100">
-            <div className="grid grid-cols-7 w-full h-full">
-                <div className="col-span-1 bg-sky-600 overflow-auto">
+            <div className="grid grid-cols-1 md:grid-cols-7 w-full h-auto md:h-full">
+                <div className="relative col-span-1 overflow-auto" id="menu">
                     <Menu />
                 </div>
-                <div className="col-span-6 bg-red overflow-auto">
+                <div className="col-span-1 md:col-span-6 bg-sky-50 overflow-auto">
                     <Header />
                     <div className="px-8 py-6">
                         {children}

@@ -1,16 +1,11 @@
 {
   "hosting": {
-    "public": "public",
+    "site": "clear-incentive-329822",
+    "public": "out",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   }
 }

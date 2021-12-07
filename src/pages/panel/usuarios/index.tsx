@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import Router from 'next/router'
 
 // Services
 import { getUsers } from '../../../services/users'
@@ -12,6 +14,7 @@ import PageTemplate from '../../../components/templates/PageTemplate'
 
 const UsuariosPage: React.FC = () => {
     const [users, setUsers] = useState([])
+    const router = useRouter()
 
     const getUsersAll = async () => {
         const { data } = await getUsers()
@@ -32,6 +35,7 @@ const UsuariosPage: React.FC = () => {
     return (
         <PanelTemplate>
             <PageTemplate title="Lista de usuarios">
+                <button className="bg-green-400 rounded mr-3 py-2 px-3 text-white float-right mb-2" onClick={() => Router.push(`${router.pathname}/create/`)}>Crear</button>
                 {users.length !== 0 && (
                     <Table
                         info={users}

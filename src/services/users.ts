@@ -1,14 +1,15 @@
 import Axios from 'axios'
 
 export const signIn = (data) =>
-    Axios.post(`http://localhost:3000/users/signin`, data, {
+    Axios.post(`https://us-central1-clear-incentive-329822.cloudfunctions.net/WijexBack/users/signin`, data, {
         headers: {
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         },
     })
 
 export const getUsers = () =>
-    Axios.get(`http://localhost:3000/users/all`, {
+    Axios.get(`https://us-central1-clear-incentive-329822.cloudfunctions.net/WijexBack/users/all`, {
         headers: {
             'Content-Type': 'application/json',
             accessToken: localStorage.getItem('accessToken'),
@@ -17,7 +18,7 @@ export const getUsers = () =>
     })
 
 export const getUserById = (id) =>
-    Axios.get(`http://localhost:3000/users/${id}`, {
+    Axios.get(`https://us-central1-clear-incentive-329822.cloudfunctions.net/WijexBack/users/${id}`, {
         headers: {
             'Content-Type': 'application/json',
             accessToken: localStorage.getItem('accessToken'),
@@ -26,7 +27,7 @@ export const getUserById = (id) =>
     })
 
 export const updateUserById = (id, data) =>
-    Axios.put(`http://localhost:3000/users/${id}`, data, {
+    Axios.put(`https://us-central1-clear-incentive-329822.cloudfunctions.net/WijexBack/users/${id}`, data, {
         headers: {
             'Content-Type': 'application/json',
             accessToken: localStorage.getItem('accessToken'),
@@ -35,11 +36,19 @@ export const updateUserById = (id, data) =>
     })
 
 export const deleteUserById = (id, uid) =>
-    Axios.delete(`http://localhost:3000/users/${id}`, {
+    Axios.delete(`https://us-central1-clear-incentive-329822.cloudfunctions.net/WijexBack/users/${id}`, {
         headers: {
             'Content-Type': 'application/json',
             accessToken: localStorage.getItem('accessToken'),
             uidUser : localStorage.getItem('uidUser'),
             uidUserCustomer: uid
+        },
+    })
+export const createUser = (data) =>
+    Axios.post(`https://us-central1-clear-incentive-329822.cloudfunctions.net/WijexBack/users/create`, data, {
+        headers: {
+            'Content-Type': 'application/json',
+            accessToken: localStorage.getItem('accessToken'),
+            uidUser : localStorage.getItem('uidUser')
         },
     })

@@ -33,15 +33,15 @@ const UsuarioEliminarPage: React.FC = () => {
                 color: 'green-400',
                 msg: 'Usuario eliminado exitosamente'
             })
+            setTimeout(() =>{
+                Router.push('/panel/usuarios')
+            }, 2000);
         }else{
             setResponse({
                 color: 'red-400',
                 msg: 'Hubo un error al eliminar'
             })
         }
-        setTimeout(() =>{
-            Router.push('/panel/usuarios')
-        }, 2000);
     }
     useEffect(() => {
         getUser()
@@ -55,23 +55,23 @@ const UsuarioEliminarPage: React.FC = () => {
                         <label className="font-bold cursor-pointer" onClick={() => setResponse({ color: "", msg: "" })}>X</label>
                     </div>
                 )}
-                <div className="grid grid-cols-3 gap-4 bg-white shadow p-8">
-                    <div className="col-span-3 text-center text-h2-d">
+                <div className="grid col-span-1 md:grid-cols-3 md:gap-4 bg-white shadow p-8">
+                    <div className=" col-span-1 md:col-span-3 text-center text-h4 justify-center md:text-h2-d">
                         ¿Estas seguro de eliminar el siguiente usuario?
                     </div>
-                    <div className="text-center">
+                    <div className="text-center md:mt-0 mt-5">
                         <label className="text-h4 font-bold">Nombres</label>
-                        <p className="text-h3 mt-2">{user.nombre}</p>
+                        <p className="text-h4 md:text-h3 mt-2">{user.nombre}</p>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center md:mt-0 mt-5">
                         <label className="text-h4 font-bold">Apellidos</label>
-                        <p className="text-h3 mt-2">{user.apellido}</p>
+                        <p className="text-h4 md:text-h3 mt-2">{user.apellido}</p>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center md:mt-0 mt-5">
                         <label className="text-h4 font-bold">Email</label>
-                        <p className="text-h3 mt-2">{user.email}</p>
+                        <p className="text-h4 md:text-h3 mt-2">{user.email}</p>
                     </div>
-                    <div className="col-span-3 text-right">
+                    <div className="col-span-1 md:col-span-3 text-right md:mt-0 mt-5">
                         <button
                             type="submit"
                             name="editar"

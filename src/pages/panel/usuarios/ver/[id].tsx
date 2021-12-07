@@ -29,18 +29,18 @@ const UsuarioVerPage: React.FC = () => {
     return (
         <PanelTemplate>
             <PageTemplate title="Ver usuario">
-                <div className="grid grid-cols-3 gap-4 bg-white shadow p-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 bg-white shadow p-8">
                     <div className="text-center">
                         <label className="text-h4 font-bold">Nombres</label>
-                        <p className="text-h3 mt-2">{user.nombre}</p>
+                        <p className="text-h4 md:text-h3 mt-2">{user.nombre}</p>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center md:mt-0 mt-5">
                         <label className="text-h4 font-bold">Apellidos</label>
-                        <p className="text-h3 mt-2">{user.apellido}</p>
+                        <p className="text-h4 md:text-h3 mt-2">{user.apellido}</p>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center md:mt-0 mt-5">
                         <label className="text-h4 font-bold">Email</label>
-                        <p className="text-h3 mt-2">{user.email}</p>
+                        <p className="text-h4 md:text-h3 mt-2">{user.email}</p>
                     </div>
                 </div>
             </PageTemplate>

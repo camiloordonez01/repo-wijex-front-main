@@ -36,7 +36,7 @@ const Table: React.FC<Props> = ({
                     cell: (row) => {
                         return (
                             <>
-                                {ver&& <button className="bg-green-400 rounded mr-3 py-2 px-3 text-white" onClick={() => Router.push(`${router.pathname}/ver/${row.idFirebase}/`)}>Ver</button>}
+                                {ver&& <button className="bg-blue-400 rounded mr-3 py-2 px-3 text-white" onClick={() => Router.push(`${router.pathname}/ver/${row.idFirebase}/`)}>Ver</button>}
                                 {editar&& <button className="bg-yellow-400 rounded mr-3 py-2 px-3 text-white" onClick={() => Router.push(`${router.pathname}/editar/${row.idFirebase}/`)}>Editar</button>}
                                 {eliminar&& <button className="bg-red-400 rounded mr-3 py-2 px-3 text-white" onClick={() => Router.push(`${router.pathname}/eliminar/${row.idFirebase}/`)}>Eliminar</button>}
                             </>

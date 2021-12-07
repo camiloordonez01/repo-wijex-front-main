@@ -9,6 +9,9 @@ import { signIn } from '../../../services/users'
 // Utils
 import { regexEmail } from '../../../utils/utils'
 
+//style
+import style from './styles.module.css'
+
 type LoginData = {
     email: string
     password: string
@@ -62,9 +65,12 @@ const Login: React.FC = () => {
                     data: { result: ResultData },
                 } = result
 
+                let fecha = new Date();
+                fecha.setHours(fecha.getHours()+1);
+
                 localStorage.setItem('accessToken', ResultData.accessToken)
                 localStorage.setItem('refreshToken', ResultData.refreshToken)
-                localStorage.setItem('expirationDate', ResultData.expirationDate)
+                localStorage.setItem('expirationDate', fecha.getTime().toString())
                 localStorage.setItem('uidUser', ResultData.uidUser)
 
                 Router.push('/panel')
@@ -79,45 +85,51 @@ const Login: React.FC = () => {
         }
     }
     return (
-        <form onSubmit={handleSubmit(handleLogin)}>
-            <Image
-                src="/images/logo.png"
-                width={252}
-                height={128}
-            />
-            <label className="grid text-left">
-                <span className="text-gray-700 ml-1">Email</span>
-                <input
-                    type="text"
-                    className={`mt-1 block w-full shadow ${(errors.email&&'border-red-500')}`}
-                    name="email"
-                    placeholder="Correo electrónico"
-                    {...register('email', emailValidationObj)}
-                    disabled={submit}
+        <div className={`${style.contentCard} w-96 m-auto rounded shadow-lg p-8 text-center`}>
+            <form onSubmit={handleSubmit(handleLogin)}>
+                <img
+                    className="m-auto"
+                    src="/logo-wijex-blue.png"
+                    width={150}
+                    height={78}
                 />
-                <span className="text-red-500 text-xs float-left">{errors.email?.message}</span>
-            </label>
-            <label className="grid text-left mt-3">
-                <span className="text-gray-700 ml-1">Contraseña</span>
-                <input
-                    type="password"
-                    className={`mt-1 block w-full shadow ${(errors.password&&'border-red-500')}`}
-                    name="password"
-                    placeholder="Contraseña"
-                    {...register('password', passwordValidationObj)}
+                <label className="grid text-left">
+                    <span className="font-bold uppercase text-xs">Email</span>
+                    <input
+                        type="text"
+                        className={`mt-1 block w-full rounded-2xl border-none ${(errors.email&&'border-red-500')}`}
+                        name="email"
+                        placeholder="Correo electrónico"
+                        {...register('email', emailValidationObj)}
+                        disabled={submit}
+                    />
+                    <span className="text-red-500 text-xs float-left">{errors.email?.message}</span>
+                </label>
+                <label className="grid text-left mt-3">
+                    <span className="font-bold uppercase text-xs">Contraseña</span>
+                    <input
+                        type="password"
+                        className={`mt-1 block w-full rounded-2xl border-none ${(errors.password&&'border-red-500')}`}
+                        name="password"
+                        placeholder="Contraseña"
+                        {...register('password', passwordValidationObj)}
+                        disabled={submit}
+                    />
+                    <span className="text-red-500 text-xs float-left mt-1 ">{errors.password?.message}</span>
+                </label>
+                <button
+                    type="submit"
+                    name="login"
+                    className={`${style.btnLogin} py-3 px-8 mt-4 w-full text-white`}
                     disabled={submit}
-                />
-                <span className="text-red-500 text-xs float-left mt-1 ">{errors.password?.message}</span>
-            </label>
-            <button
-                type="submit"
-                name="login"
-                className="w-full bg-sky-400 mt-4 py-2 rounded text-white"
-                disabled={submit}
-            >
-                Iniciar sesión
-            </button>
-        </form>
+                >
+                    <div className={`items-center justify-center inline-flex pr-3 ${!submit && 'hidden'}`}>
+                        <div className="w-4 h-4 border-b-2 border-gray-900 rounded-full animate-spin"></div>
+                    </div>
+                    Iniciar sesión
+                </button>
+            </form>
+        </div>
     )
 }
 export default Login

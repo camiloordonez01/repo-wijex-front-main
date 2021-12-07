@@ -125,8 +125,8 @@ const UsuarioEditarPage: React.FC = () => {
                     </div>
                 )}
                 <form onSubmit={handleSubmit(handleEdit)}>
-                    <div className="grid grid-cols-4 gap-4 bg-white shadow p-8">
-                        <div className="text-center">
+                    <div className="grid col-span-1 md:grid-cols-4 md:gap-4 bg-white shadow p-8">
+                        <div className="text-center  md:mt-0 mt-5">
                             <label className="text-h4 font-bold">Nombres <span className="text-red-400">*</span></label>
                             <input
                                 type="text"
@@ -138,7 +138,7 @@ const UsuarioEditarPage: React.FC = () => {
                             />
                             <span className="text-red-500 text-xs float-left">{errors.nombre?.message}</span>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center md:mt-0 mt-5">
                             <label className="text-h4 font-bold">Apellidos <span className="text-red-400">*</span></label>
                             <input
                                 type="text"
@@ -150,7 +150,7 @@ const UsuarioEditarPage: React.FC = () => {
                             />
                             <span className="text-red-500 text-xs float-left">{errors.apellido?.message}</span>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center md:mt-0 mt-5">
                             <label className="text-h4 font-bold">Email</label>
                             <input
                                 type="text"
@@ -161,7 +161,7 @@ const UsuarioEditarPage: React.FC = () => {
                                 disabled={true}
                             />
                         </div>
-                        <div className="text-center">
+                        <div className="text-center md:mt-0 mt-5">
                             <label className="text-h4 font-bold">Contraseña</label>
                             <input
                                 type="password"
@@ -173,7 +173,7 @@ const UsuarioEditarPage: React.FC = () => {
                             />
                             <span className="text-red-500 text-xs float-left mt-1 ">{errors.password?.message}</span>
                         </div>
-                        <div className="col-span-4 text-right">
+                        <div className="col-span-1 md:col-span-4 text-right  md:mt-0 mt-5">
                             <button
                                 type="submit"
                                 name="editar"
